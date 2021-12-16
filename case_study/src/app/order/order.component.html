@@ -1,0 +1,41 @@
+<div class="mt-3 col-md-12 ">
+    <div class="d-flex justify-content-end" >
+        <input type="search" id="form1" class="form-control" placeholder="Search..."
+             aria-label="Search"
+             [(ngModel)]="filterText"
+             style="width:200px;"
+        />
+        <button mat-button class="btn btn-success" (click)="openAddOrderMenu()">Add</button> 
+     
+    </div>  
+</div>
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <td ng-click="id()" scope="col">#</td>
+        <td ng-click="Order()" scope="col">First</td>
+        <td ng-click="Model()" scope="col">Last</td>
+        <td ng-click="Country()" scope="col">Handle</td>
+        <td ng-click="Status()" scope="col">Last</td>
+        <td ng-click="Date()" scope="col">Handle</td>
+        
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of order | searchFilter:filterText" >
+            <td>{{ o.id }}</td>
+            <td>{{ o.Order }}</td>
+            <td>{{ o.Model }}</td>
+            <td>{{ o.Country }}</td>
+            <td>{{ o.Status }}</td>
+            <td>{{ o.Date }}</td>    
+            <div class="mt-3 col-md-2" class="btn-group">   
+                <button mat-button class="btn btn-primary" (click)="openEditOrderMenu()">Edit</button>    
+                <button mat-button class="btn btn-danger" (click)="openRemoveOrderMenu()">Delete</button> 
+            </div>
+              
+        </tr>
+    </tbody>
+  </table>
